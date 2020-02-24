@@ -36,45 +36,12 @@
                     </div>
                 </div>
                 <div>
-                    <!--<div>
-                    <div class="uk-h3">Pull</div>
-                    <div class="uk-position-relative uk-visible-toggle uk-light col-lg-6 col-md-12   col-sm-12" tabindex="-1" uk-slideshow="animation: pull; autoplay: true; min-height: 100; max-height: 300">
-
-                        <ul class="uk-slideshow-items">
-                            <li>
-                                <img src="assets/img/silde01.jpg" alt="" uk-cover>
-                            </li>
-                            <li>
-                                <img src="assets/img/silde02.jpg" alt="" uk-cover>
-                            </li>
-                            <li>
-                                <img src="assets/img/silde03.jpg" alt="" uk-cover>
-                            </li>
-                        </ul>
-
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-                        
-                        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                    </div>
-                </div>-->
-                    <img id="img-slide" class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" src="assets/img/silde02.jpg" onclick=changeimg()/>
+                    <img id="img-slide" class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" src="assets/img/silde02.jpg" onclick="changeimg()" height="70%" width="60%"/>
                 </div>
 
                 <br>
-
-                <!-- The dots/circles -->
-                <!--
-                    <div style="text-align:center">
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                    </div>
-                </div>
--->
                 <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">We take pride in our work, and it shows. Every time you a livestock from us, we guarantee that it will be a healthy, well fed and lively "fellow". Whether it's a boer goat or a west African dwarf goat, or a south African meat merino
-                        or a barbados black belly, we make sure you can point at it as a best in livestock.</p>
+                    <p class="mb-0">We take pride in our work, and it shows. Every time you a livestock from us, we guarantee that it will be a healthy, well fed and lively "fellow". Whether it's a Red kalahari, boer goat or milk goat, we make sure you can point at it as a best in livestock.</p>
                 </div>
             </div>
         </div>
@@ -86,13 +53,30 @@
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+    <!--    <script src="assets/js/script.min.js"></script>-->
     <script src="assets/uikit/js/uikit.min.js"></script>
     <script src="assets/uikit/js/uikit-icons.min.js"></script>
     <script>
+        window.setInterval(function() {
+            changeimg()
+        }, 2500);
+
         function changeimg() {
-            var image = document.getElementsById("img-slide");
-            image.src = "assets/img/slide03.jpg";
+            var image = document.getElementById("img-slide");
+            console.log(image.src);
+            console.log(image.src.length);
+            var count = parseInt(image.src.substring(image.src.length - 6, image.src.length - 4));
+            console.log(count);
+            count = count + 1;
+            console.log(count);
+            if (count > 23) {
+                count = 01;
+            }
+            if (count < 10) {
+                image.src = "assets/img/silde0" + count + ".jpg";
+            } else {
+                image.src = "assets/img/silde" + count + ".jpg";
+            }
         }
 
     </script>
